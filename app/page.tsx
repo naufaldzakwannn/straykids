@@ -1,65 +1,93 @@
-import Image from "next/image";
+import Link from "next/link";
+import PhotocardStack from "./components/PhotocardStack";
+import { news } from "@/lib/news";
+import { schedule } from "@/lib/schedule";
 
-export default function Home() {
+export default function HomePage() {
+  const latestNews = news.slice(0, 3);
+  const upcoming = schedule.slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      {/* HERO */}
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 py-16 md:grid-cols-2 md:py-24">
+          <div>
+            <p className="label-tag text-gold">Fansite independen — bukan situs resmi</p>
+            <h1 className="mt-4 font-display text-5xl leading-[0.95] text-paper sm:text-6xl">
+              DELAPAN
+              <br />
+              SUARA,
+              <br />
+              <span className="text-stroke">SATU</span> CATATAN.
+            </h1>
+            <p className="mt-6 max-w-md text-paperdim">Arsip yang dikurasi STAY untuk STAY — kumpulan profil, momen panggung, dan jejak rilis Stray Kids sejak debut, disusun ulang biar enak ditelusuri kapan saja.</p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/members" className="border border-maroon bg-maroon px-6 py-3 label-tag text-paper transition hover:bg-transparent hover:text-maroon">
+                Lihat Members
+              </Link>
+              <Link href="/gallery" className="border border-line px-6 py-3 label-tag text-paperdim transition hover:border-paper hover:text-paper">
+                Jelajah Gallery
+              </Link>
+            </div>
+          </div>
+          <PhotocardStack />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* NEWS PREVIEW */}
+      <section className="mx-auto max-w-6xl px-5 py-16">
+        <div className="mb-8 flex items-end justify-between">
+          <h2 className="font-display text-3xl text-paper">Catatan Terbaru</h2>
+          <Link href="/news" className="label-tag text-gold hover:text-paper">
+            Semua berita →
+          </Link>
         </div>
-      </main>
+        <div className="grid gap-6 sm:grid-cols-3">
+          {latestNews.map((item) => (
+            <Link key={item.slug} href={`/news#${item.slug}`} className="group border-t-2 border-line pt-4 transition hover:border-maroon">
+              <p className="label-tag text-paperdim">
+                {new Date(item.date).toLocaleDateString("id-ID", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}{" "}
+                · {item.category}
+              </p>
+              <h3 className="mt-2 font-display text-xl leading-tight text-paper group-hover:text-gold">{item.title}</h3>
+              <p className="mt-2 text-sm text-paperdim">{item.excerpt}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* SCHEDULE PREVIEW */}
+      <section className="border-t border-line bg-surface/40">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <div className="mb-8 flex items-end justify-between">
+            <h2 className="font-display text-3xl text-paper">Yang Akan Datang</h2>
+            <Link href="/schedule" className="label-tag text-gold hover:text-paper">
+              Jadwal lengkap →
+            </Link>
+          </div>
+          <div className="flex flex-col">
+            {upcoming.map((item) => (
+              <div key={item.id} className="flex flex-col gap-3 border-b border-line py-5 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-sm text-gold">
+                    {new Date(item.date).toLocaleDateString("id-ID", {
+                      day: "2-digit",
+                      month: "short",
+                    })}
+                  </span>
+                  <span className="text-paper">{item.title}</span>
+                </div>
+                <span className="label-tag w-fit border border-line px-3 py-1 text-paperdim">{item.category}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

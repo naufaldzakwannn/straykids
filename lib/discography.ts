@@ -1,0 +1,138 @@
+export type Release = {
+  slug: string;
+  title: string;
+  type: "Album" | "EP" | "Single" | "Japanese Album";
+  date: string;
+  trackCount: number;
+  titleTrack: string;
+  note: string;
+};
+
+export const releases: Release[] = [
+  {
+    slug: "mixtape",
+    title: "Mixtape",
+    type: "EP",
+    date: "2018-01-08",
+    trackCount: 5,
+    titleTrack: "Hellevator",
+    note: "Rilis pra-debut yang memperkenalkan identitas sonic 3RACHA ke publik.",
+  },
+  {
+    slug: "i-am-not",
+    title: "I am NOT",
+    type: "EP",
+    date: "2018-03-25",
+    trackCount: 7,
+    titleTrack: "District 9",
+    note: "EP debut resmi, membuka trilogi 'I am' yang membahas identitas dan tekanan eksternal.",
+  },
+  {
+    slug: "i-am-who",
+    title: "I am WHO",
+    type: "EP",
+    date: "2018-07-23",
+    trackCount: 7,
+    titleTrack: "My Pace",
+    note: "Bagian kedua trilogi, fokus pada pencarian arah diri setelah debut.",
+  },
+  {
+    slug: "clé-1-miroh",
+    title: "Clé 1 : MIROH",
+    type: "EP",
+    date: "2019-03-25",
+    trackCount: 6,
+    titleTrack: "MIROH",
+    note: "Awal seri 'Clé', membawa energi yang lebih agresif dan tema penjelajahan jalan sendiri.",
+  },
+  {
+    slug: "go-live",
+    title: "Go Live",
+    type: "Album",
+    date: "2020-06-17",
+    trackCount: 15,
+    titleTrack: "Back Door",
+    note: "Album studio penuh pertama, menandai pendewasaan tema dan produksi grup.",
+  },
+  {
+    slug: "in-life",
+    title: "In Life",
+    type: "Album",
+    date: "2020-08-19",
+    trackCount: 18,
+    titleTrack: "Back Door",
+    note: "Edisi repackage dari Go Live dengan tambahan beberapa track baru.",
+  },
+  {
+    slug: "noeasy",
+    title: "Noeasy",
+    type: "Album",
+    date: "2021-08-23",
+    trackCount: 11,
+    titleTrack: "Thunderous",
+    note: "Membawa motif tradisional Korea ke dalam visual dan koreografi title track.",
+  },
+  {
+    slug: "oddinary",
+    title: "Oddinary",
+    type: "Album",
+    date: "2022-03-18",
+    trackCount: 9,
+    titleTrack: "Maniac",
+    note: "Comeback pertama era pasca-pandemi dengan konsep superhero anti-pahlawan.",
+  },
+  {
+    slug: "maxident",
+    title: "Maxident",
+    type: "EP",
+    date: "2022-10-07",
+    trackCount: 8,
+    titleTrack: "Case 143",
+    note: "Melanjutkan motif 'kasus' dari Oddinary dengan nada yang lebih playful.",
+  },
+  {
+    slug: "rock-star",
+    title: "Rock-Star",
+    type: "Album",
+    date: "2023-04-10",
+    trackCount: 12,
+    titleTrack: "S-Class",
+    note: "Album studio kedua, membahas tekanan kesuksesan lewat metafora rollercoaster.",
+  },
+  {
+    slug: "5-star",
+    title: "5-Star",
+    type: "Album",
+    date: "2023-06-02",
+    trackCount: 14,
+    titleTrack: "S-Class",
+    note: "Repackage Rock-Star, comeback global pertama dengan title track berbahasa Inggris-Korea.",
+  },
+  {
+    slug: "circus",
+    title: "★★★★★ (5-Star) Special Edition",
+    type: "Album",
+    date: "2023-10-13",
+    trackCount: 16,
+    titleTrack: "Lalalala",
+    note: "Edisi khusus dengan tambahan track baru bertema sirkus.",
+  },
+  {
+    slug: "ate",
+    title: "ATE",
+    type: "Album",
+    date: "2024-07-19",
+    trackCount: 10,
+    titleTrack: "Chk Chk Boom",
+    note: "Album studio ketiga dengan nada yang lebih eksperimental dan playful.",
+  },
+  {
+    slug: "do-it",
+    title: "DO IT",
+    type: "EP",
+    date: "2025-03-21",
+    trackCount: 8,
+    titleTrack: "CEREMONY",
+    note: "Comeback dengan tema kembali ke semangat awal dan filosofi 'lakukan saja'.",
+  },
+];
