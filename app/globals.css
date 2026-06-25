@@ -1,11 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+@theme {
+  /* Warna — didaftarkan dengan prefix --color-* supaya Tailwind generate
+     class bg-ink, text-paper, border-line, dst secara otomatis */
+  --color-ink: #0b0b0d;
+  --color-surface: #161618;
+  --color-surface2: #1d1d20;
+  --color-paper: #e8e6e1;
+  --color-paperdim: #9c9a93;
+  --color-maroon: #8b1e2f;
+  --color-gold: #c9a961;
+  --color-line: #2a2a2d;
+
+  /* Font — variable ini juga di-set oleh next/font lewat className di
+     layout.tsx; nilai fallback di sini dipakai kalau next/font belum
+     terpasang (misal saat dev tanpa JS aktif) */
   --font-display: "Anton", "Arial Narrow", sans-serif;
   --font-body: "Source Serif 4", Georgia, serif;
   --font-mono: "IBM Plex Mono", monospace;
+
+  --tracking-widest2: 0.25em;
 }
 
 * {
@@ -13,12 +27,12 @@
 }
 
 html {
-  background-color: #0b0b0d;
+  background-color: var(--color-ink);
 }
 
 body {
-  background-color: #0b0b0d;
-  color: #e8e6e1;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
   font-family: var(--font-body);
   position: relative;
 }
@@ -36,8 +50,8 @@ body::before {
 }
 
 ::selection {
-  background-color: #8b1e2f;
-  color: #e8e6e1;
+  background-color: var(--color-maroon);
+  color: var(--color-paper);
 }
 
 /* Fokus keyboard yang terlihat jelas, sesuai quality floor */
@@ -45,7 +59,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #c9a961;
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
 }
 
@@ -62,7 +76,7 @@ textarea:focus-visible {
 
 /* Garis perforasi ala tiket / kartu album, dipakai sebagai divider bermakna */
 .perforation {
-  background-image: radial-gradient(circle, #0b0b0d 2px, transparent 2.5px);
+  background-image: radial-gradient(circle, var(--color-ink) 2px, transparent 2.5px);
   background-size: 14px 100%;
   background-repeat: repeat-x;
   background-position: center;
@@ -73,17 +87,22 @@ textarea:focus-visible {
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s ease;
+  --hover-lift: translateY(0) scale(1);
 }
 
 .card-tilt:hover,
 .card-tilt:focus-visible {
-  transform: translateY(-10px) rotate(0deg) !important;
+  transform: var(--card-base-transform) var(--hover-lift) !important;
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
-  z-index: 10;
+  z-index: 20 !important;
+}
+
+.card-tilt:hover {
+  --hover-lift: translateY(-14px) scale(1.05);
 }
 
 .text-stroke {
-  -webkit-text-stroke: 1px #c9a961;
+  -webkit-text-stroke: 1px var(--color-gold);
   color: transparent;
 }
 
