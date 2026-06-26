@@ -9,6 +9,7 @@ export type Member = {
   accent: string; // hex aksen personal, dipakai tipis di card & halaman member
   bio: string;
   facts: string[];
+  photo?: string;
 };
 
 export const members: Member[] = [
@@ -22,11 +23,8 @@ export const members: Member[] = [
     lineNumber: 1,
     accent: "#8B1E2F",
     bio: "Produser utama di balik sebagian besar diskografi grup lewat 3RACHA. Dikenal sangat protektif ke member lain dan jadi penghubung utama dengan label.",
-    facts: [
-      "Lahir dan besar di Sydney, Australia",
-      "Memegang co-writing credit di hampir seluruh title track",
-      "Punya kebiasaan tidur paling sedikit di antara member",
-    ],
+    facts: ["Lahir dan besar di Sydney, Australia", "Memegang co-writing credit di hampir seluruh title track", "Punya kebiasaan tidur paling sedikit di antara member"],
+    photo: "/images/members/bangchan.jpg",
   },
   {
     slug: "lee-know",
@@ -38,11 +36,8 @@ export const members: Member[] = [
     lineNumber: 2,
     accent: "#3A4A5C",
     bio: "Tulang punggung formasi koreografi grup. Dikenal lewat segmen kucing-kucing di konten variety dan ekspresi datar yang jadi ciri khas.",
-    facts: [
-      "Memulai karier sebagai trainee balet sebelum pindah ke dance modern",
-      "Sering memimpin bagian formasi paling teknis dalam koreografi",
-      "Punya tiga kucing peliharaan yang sering muncul di konten",
-    ],
+    facts: ["Memulai karier sebagai trainee balet sebelum pindah ke dance modern", "Sering memimpin bagian formasi paling teknis dalam koreografi", "Punya tiga kucing peliharaan yang sering muncul di konten"],
+    photo: "/images/members/leeknow.jpg",
   },
   {
     slug: "changbin",
@@ -54,11 +49,8 @@ export const members: Member[] = [
     lineNumber: 3,
     accent: "#1F2D3D",
     bio: "Separuh dari identitas rap grup berdampingan dengan Chan dan Han. Suara bass dalamnya jadi penanda khas verse-verse 3RACHA.",
-    facts: [
-      "Tinggi badan jadi bahan self-deprecating joke favoritnya",
-      "Aktif nge-mix dan mastering demo internal sebelum masuk studio resmi",
-      "Punya proyek sampingan vokal lower register yang jarang ditonjolkan",
-    ],
+    facts: ["Tinggi badan jadi bahan self-deprecating joke favoritnya", "Aktif nge-mix dan mastering demo internal sebelum masuk studio resmi", "Punya proyek sampingan vokal lower register yang jarang ditonjolkan"],
+    photo: "/images/members/changbin.jpg",
   },
   {
     slug: "hyunjin",
@@ -70,11 +62,8 @@ export const members: Member[] = [
     lineNumber: 4,
     accent: "#6B4226",
     bio: "Dikenal lewat kombinasi line dance modern dan latar belakang seni lukis. Sering terlibat dalam concept art dan moodboard era comeback.",
-    facts: [
-      "Belajar lukis sejak sekolah dan masih aktif menggambar",
-      "Sempat menjalani masa hiatus publik dan comeback dengan dukungan fandom yang kuat",
-      "Dikenal dengan line dance yang jadi ciri banyak koreografi grup",
-    ],
+    facts: ["Belajar lukis sejak sekolah dan masih aktif menggambar", "Sempat menjalani masa hiatus publik dan comeback dengan dukungan fandom yang kuat", "Dikenal dengan line dance yang jadi ciri banyak koreografi grup"],
+    photo: "/images/members/hyunjin.jpg",
   },
   {
     slug: "han",
@@ -86,11 +75,8 @@ export const members: Member[] = [
     lineNumber: 5,
     accent: "#C9A961",
     bio: "Penulis lirik paling produktif di 3RACHA, sering menulis dari pengalaman pribadi soal kecemasan dan tekanan industri.",
-    facts: [
-      "Dikenal lewat energi panggung yang sangat ekspresif",
-      "Banyak lirik personal grup ditulis langsung dari pengalamannya",
-      "Sempat terbuka soal perjuangannya dengan anxiety di depan publik",
-    ],
+    facts: ["Dikenal lewat energi panggung yang sangat ekspresif", "Banyak lirik personal grup ditulis langsung dari pengalamannya", "Sempat terbuka soal perjuangannya dengan anxiety di depan publik"],
+    photo: "/images/members/han.jpg",
   },
   {
     slug: "felix",
@@ -102,11 +88,8 @@ export const members: Member[] = [
     lineNumber: 6,
     accent: "#2C2C2C",
     bio: "Vokal bass khasnya jadi salah satu identitas sonic grup. Lahir di Sydney, satu kota dengan Chan sebelum keduanya bertemu lewat agensi yang sama.",
-    facts: [
-      "Lahir dan besar di Sydney, Australia, sama seperti Chan",
-      "Vokal bass-nya yang dalam jadi meme dan ciri khas tersendiri",
-      "Belajar bahasa Korea secara intensif sebelum debut",
-    ],
+    facts: ["Lahir dan besar di Sydney, Australia, sama seperti Chan", "Vokal bass-nya yang dalam jadi meme dan ciri khas tersendiri", "Belajar bahasa Korea secara intensif sebelum debut"],
+    photo: "/images/members/felix.jpg",
   },
   {
     slug: "seungmin",
@@ -118,11 +101,8 @@ export const members: Member[] = [
     lineNumber: 7,
     accent: "#3D5A4A",
     bio: "Vokal utama grup dengan rentang nada yang konsisten jadi andalan di bagian klimaks lagu. Punya timing komedi natural di konten variety.",
-    facts: [
-      "Salah satu member dengan jadwal trainee paling singkat sebelum debut",
-      "Sering jadi MC dadakan di konten variety internal grup",
-      "Vokalnya jadi anchor di banyak bagian bridge dan chorus",
-    ],
+    facts: ["Salah satu member dengan jadwal trainee paling singkat sebelum debut", "Sering jadi MC dadakan di konten variety internal grup", "Vokalnya jadi anchor di banyak bagian bridge dan chorus"],
+    photo: "/images/members/seungmin.jpg",
   },
   {
     slug: "in",
@@ -134,11 +114,8 @@ export const members: Member[] = [
     lineNumber: 8,
     accent: "#4A4A52",
     bio: "Member termuda yang tumbuh di depan publik sejak masa trainee. Vokalnya berkembang signifikan dari era debut hingga sekarang.",
-    facts: [
-      "Member termuda atau 'maknae' dari kedelapan personel",
-      "Dikenal lewat suara tertawa khasnya yang sering jadi bahan klip",
-      "Mulai dipercaya membawakan line vokal yang lebih kompleks di era-era terbaru",
-    ],
+    facts: ["Member termuda atau 'maknae' dari kedelapan personel", "Dikenal lewat suara tertawa khasnya yang sering jadi bahan klip", "Mulai dipercaya membawakan line vokal yang lebih kompleks di era-era terbaru"],
+    photo: "/images/members/in.jpg",
   },
 ];
 

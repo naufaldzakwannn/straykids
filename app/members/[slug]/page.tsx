@@ -1,6 +1,7 @@
 import { members, getMember } from "@/lib/members";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export function generateStaticParams() {
   return members.map((m) => ({ slug: m.slug }));
@@ -11,11 +12,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return { title: member ? `${member.stageName} — STAY ARCHIVE` : "Member" };
 }
 
-export default function MemberDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function MemberDetailPage({ params }: { params: { slug: string } }) {
   const member = getMember(params.slug);
   if (!member) notFound();
 
@@ -29,16 +26,11 @@ export default function MemberDetailPage({
         ← Kembali ke index
       </Link>
 
-      <div
-        className="mt-8 border-l-4 pl-6"
-        style={{ borderColor: member.accent }}
-      >
+      <div className="mt-8 border-l-4 pl-6" style={{ borderColor: member.accent }}>
         <p className="label-tag" style={{ color: member.accent }}>
           {String(member.lineNumber).padStart(2, "0")} / 08 · {member.unit}
         </p>
-        <h1 className="mt-2 font-display text-5xl text-paper sm:text-6xl">
-          {member.stageName}
-        </h1>
+        <h1 className="mt-2 font-display text-5xl text-paper sm:text-6xl">{member.stageName}</h1>
         <p className="mt-1 text-paperdim">{member.realName}</p>
       </div>
 
@@ -51,9 +43,7 @@ export default function MemberDetailPage({
           <ul className="mt-3 space-y-2">
             {member.facts.map((fact, i) => (
               <li key={i} className="flex gap-3 text-paperdim">
-                <span className="font-mono text-xs text-paperdim/60">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="font-mono text-xs text-paperdim/60">{String(i + 1).padStart(2, "0")}</span>
                 <span>{fact}</span>
               </li>
             ))}
@@ -61,6 +51,11 @@ export default function MemberDetailPage({
         </div>
 
         <div className="border-t border-line pt-6 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+          {member.photo && (
+            <div className="relative mb-6 aspect-[3/4] w-full overflow-hidden border" style={{ borderColor: member.accent }}>
+              <Image src={member.photo} alt={member.stageName} fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
+            </div>
+          )}
           <h2 className="label-tag text-gold">Detail</h2>
           <dl className="mt-3 space-y-3 text-sm">
             <div>
@@ -80,16 +75,10 @@ export default function MemberDetailPage({
       </div>
 
       <div className="mt-16 flex items-center justify-between border-t border-line pt-6">
-        <Link
-          href={`/members/${prev.slug}`}
-          className="label-tag text-paperdim hover:text-paper"
-        >
+        <Link href={`/members/${prev.slug}`} className="label-tag text-paperdim hover:text-paper">
           ← {prev.stageName}
         </Link>
-        <Link
-          href={`/members/${next.slug}`}
-          className="label-tag text-paperdim hover:text-paper"
-        >
+        <Link href={`/members/${next.slug}`} className="label-tag text-paperdim hover:text-paper">
           {next.stageName} →
         </Link>
       </div>
