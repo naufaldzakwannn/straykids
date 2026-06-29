@@ -14,6 +14,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "bangchan",
     caption: "Bang Chan — fancam stage",
     era: "Rock-Star",
+    photo: "/images/gallery/bc2.jpg",
   },
   {
     id: "bangchan-2",
@@ -26,6 +27,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "lee-know",
     caption: "Lee Know — fancam stage",
     era: "ATE",
+    photo: "/images/gallery/lk2.jpg",
   },
   {
     id: "lee-know-2",
@@ -38,6 +40,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "changbin",
     caption: "Changbin — fancam stage",
     era: "Rock-Star",
+    photo: "/images/gallery/cb2.jpg",
   },
   {
     id: "changbin-2",
@@ -50,6 +53,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "hyunjin",
     caption: "Hyunjin — fancam stage",
     era: "ATE",
+    photo: "/images/gallery/hj2.jpg",
   },
   {
     id: "hyunjin-2",
@@ -62,6 +66,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "han",
     caption: "Han — fancam stage",
     era: "Rock-Star",
+    photo: "/images/gallery/han2.jpg",
   },
   {
     id: "han-2",
@@ -74,6 +79,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "felix",
     caption: "Felix — fancam stage",
     era: "ATE",
+    photo: "/images/gallery/felix2.jpg",
   },
   {
     id: "felix-2",
@@ -86,6 +92,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "seungmin",
     caption: "Seungmin — fancam stage",
     era: "Rock-Star",
+    photo: "/images/gallery/sm2.jpg",
   },
   {
     id: "seungmin-2",
@@ -98,6 +105,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "in",
     caption: "I.N — fancam stage",
     era: "ATE",
+    photo: "/images/gallery/in2.jpg",
   },
   {
     id: "in-2",
