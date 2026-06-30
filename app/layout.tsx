@@ -24,6 +24,11 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "STAY ARCHIVE — Fansite Stray Kids",
   description: "Arsip penggemar independen untuk Stray Kids: profil member, galeri, diskografi, dan jadwal comeback.",
+  icons: {
+    icon: [{ url: "/skz.webp", type: "image/webp" }],
+    shortcut: "/skz.webp",
+    apple: "/skz.webp",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
