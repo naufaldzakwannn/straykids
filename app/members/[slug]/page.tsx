@@ -2,19 +2,39 @@ import { members, getMember } from "@/lib/members";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return members.map((m) => ({ slug: m.slug }));
+  return members.map((member) => ({
+    slug: member.slug,
+  }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const member = getMember(params.slug);
-  return { title: member ? `${member.stageName} — STAY ARCHIVE` : "Member" };
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+
+  const member = getMember(slug);
+
+  if (!member) {
+    return {
+      title: "Member Not Found",
+    };
+  }
+
+  return {
+    title: `${member.stageName} — STAY ARCHIVE`,
+    description: member.bio,
+  };
 }
 
-export default function MemberDetailPage({ params }: { params: { slug: string } }) {
-  const member = getMember(params.slug);
-  if (!member) notFound();
+export default async function MemberDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  const member = getMember(slug);
+
+  if (!member) {
+    notFound();
+  }
 
   const index = members.findIndex((m) => m.slug === member.slug);
   const prev = members[(index - 1 + members.length) % members.length];
@@ -30,20 +50,25 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
         <p className="label-tag" style={{ color: member.accent }}>
           {String(member.lineNumber).padStart(2, "0")} / 08 · {member.unit}
         </p>
+
         <h1 className="mt-2 font-display text-5xl text-paper sm:text-6xl">{member.stageName}</h1>
+
         <p className="mt-1 text-paperdim">{member.realName}</p>
       </div>
 
       <div className="mt-10 grid gap-10 sm:grid-cols-3">
         <div className="sm:col-span-2">
           <h2 className="label-tag text-gold">Profil</h2>
+
           <p className="mt-3 leading-relaxed text-paper">{member.bio}</p>
 
           <h2 className="label-tag mt-8 text-gold">Catatan</h2>
+
           <ul className="mt-3 space-y-2">
-            {member.facts.map((fact, i) => (
-              <li key={i} className="flex gap-3 text-paperdim">
-                <span className="font-mono text-xs text-paperdim/60">{String(i + 1).padStart(2, "0")}</span>
+            {member.facts.map((fact, index) => (
+              <li key={index} className="flex gap-3 text-paperdim">
+                <span className="font-mono text-xs text-paperdim/60">{String(index + 1).padStart(2, "0")}</span>
+
                 <span>{fact}</span>
               </li>
             ))}
@@ -56,18 +81,25 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
               <Image src={member.photo} alt={member.stageName} fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
             </div>
           )}
+
           <h2 className="label-tag text-gold">Detail</h2>
+
           <dl className="mt-3 space-y-3 text-sm">
             <div>
               <dt className="text-paperdim">Posisi</dt>
+
               <dd className="text-paper">{member.position.join(", ")}</dd>
             </div>
+
             <div>
               <dt className="text-paperdim">Sub-unit</dt>
+
               <dd className="text-paper">{member.unit}</dd>
             </div>
+
             <div>
               <dt className="text-paperdim">Lahir</dt>
+
               <dd className="font-mono text-paper">{member.birthDate}</dd>
             </div>
           </dl>
@@ -78,6 +110,7 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
         <Link href={`/members/${prev.slug}`} className="label-tag text-paperdim hover:text-paper">
           ← {prev.stageName}
         </Link>
+
         <Link href={`/members/${next.slug}`} className="label-tag text-paperdim hover:text-paper">
           {next.stageName} →
         </Link>
