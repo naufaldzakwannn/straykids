@@ -1,11 +1,13 @@
 export type Release = {
   slug: string;
   title: string;
-  type: "Album" | "EP" | "Single" | "Japanese Album";
+  type: "Album" | "EP" | "Single" | "Mixtape";
   date: string;
   trackCount: number;
   titleTrack: string;
   note: string;
+  cover?: string;
+  tracklist?: string[];
 };
 
 export const releases: Release[] = [
@@ -17,6 +19,7 @@ export const releases: Release[] = [
     trackCount: 5,
     titleTrack: "Hellevator",
     note: "Rilis pra-debut yang memperkenalkan identitas sonic 3RACHA ke publik.",
+    tracklist: ["Hellevator", "Grrr 총량의 법칙", "Broken Compass", "Yayaya", "Miroh (Hellevator Mix)"],
   },
   {
     slug: "i-am-not",
@@ -26,6 +29,7 @@ export const releases: Release[] = [
     trackCount: 7,
     titleTrack: "District 9",
     note: "EP debut resmi, membuka trilogi 'I am' yang membahas identitas dan tekanan eksternal.",
+    tracklist: ["Levanter (Intro)", "District 9", "Grow Up", "Awkward Silence", "M.I.A", "Insomnia", "Young Wings"],
   },
   {
     slug: "i-am-who",
@@ -35,15 +39,17 @@ export const releases: Release[] = [
     trackCount: 7,
     titleTrack: "My Pace",
     note: "Bagian kedua trilogi, fokus pada pencarian arah diri setelah debut.",
+    tracklist: ["Who?", "My Pace", "Voices", "Insomnia", "Question", "Mixtape", "I Am YOU"],
   },
   {
-    slug: "clé-1-miroh",
+    slug: "cle-1-miroh",
     title: "Clé 1 : MIROH",
     type: "EP",
     date: "2019-03-25",
     trackCount: 6,
     titleTrack: "MIROH",
     note: "Awal seri 'Clé', membawa energi yang lebih agresif dan tema penjelajahan jalan sendiri.",
+    tracklist: ["Entrance", "MIROH", "Chronosaurus", "Ex", "Victory Song", "19"],
   },
   {
     slug: "go-live",
@@ -53,15 +59,7 @@ export const releases: Release[] = [
     trackCount: 15,
     titleTrack: "Back Door",
     note: "Album studio penuh pertama, menandai pendewasaan tema dan produksi grup.",
-  },
-  {
-    slug: "in-life",
-    title: "In Life",
-    type: "Album",
-    date: "2020-08-19",
-    trackCount: 18,
-    titleTrack: "Back Door",
-    note: "Edisi repackage dari Go Live dengan tambahan beberapa track baru.",
+    tracklist: ["I'll Be Your Man (Intro)", "Back Door", "Easy", "Haven", "Stray Kids", "Slump", "Top", "Pacemaker", "Spread My Wings", "Phobia", "The tortoise and the hare", "Wow", "My Universe", "Blueprint", "Gone Away"],
   },
   {
     slug: "noeasy",
@@ -71,6 +69,7 @@ export const releases: Release[] = [
     trackCount: 11,
     titleTrack: "Thunderous",
     note: "Membawa motif tradisional Korea ke dalam visual dan koreografi title track.",
+    tracklist: ["CHEESE", "Thunderous", "Silent Cry", "Domino", "Ssick", "Red Lights", "Star Lost", "Surfin'", "Wolfgang", "District 9: Unlock", "MIROH (ENG)"],
   },
   {
     slug: "oddinary",
@@ -80,6 +79,7 @@ export const releases: Release[] = [
     trackCount: 9,
     titleTrack: "Maniac",
     note: "Comeback pertama era pasca-pandemi dengan konsep superhero anti-pahlawan.",
+    tracklist: ["Venom", "Maniac", "MIROH", "Freeze", "FAM", "Charmer", "Super Bowl", "OH", "Gone"],
   },
   {
     slug: "maxident",
@@ -89,6 +89,7 @@ export const releases: Release[] = [
     trackCount: 8,
     titleTrack: "Case 143",
     note: "Melanjutkan motif 'kasus' dari Oddinary dengan nada yang lebih playful.",
+    tracklist: ["Case 143", "Give Me Your TMI", "CHILL", "3RACHA", "Taste", "You Are There Too", "Overdrive", "Haven (ENG)"],
   },
   {
     slug: "rock-star",
@@ -98,6 +99,7 @@ export const releases: Release[] = [
     trackCount: 12,
     titleTrack: "S-Class",
     note: "Album studio kedua, membahas tekanan kesuksesan lewat metafora rollercoaster.",
+    tracklist: ["Miroh", "S-Class", "Topline (feat. Tiger JK)", "Collision", "Social Path (feat. LiSA)", "Item", "Megaverse", "Super Bowl", "MIROH (ENG ver.)", "Hall of Fame", "Mixtape: On Track", "Rock"],
   },
   {
     slug: "5-star",
@@ -107,32 +109,127 @@ export const releases: Release[] = [
     trackCount: 14,
     titleTrack: "S-Class",
     note: "Repackage Rock-Star, comeback global pertama dengan title track berbahasa Inggris-Korea.",
+    tracklist: [
+      "Miroh",
+      "S-Class",
+      "Topline (feat. Tiger JK)",
+      "Collision",
+      "Social Path (feat. LiSA)",
+      "Item",
+      "Megaverse",
+      "Super Bowl",
+      "MIROH (ENG ver.)",
+      "Hall of Fame",
+      "Mixtape: On Track",
+      "Rock",
+      "LALALALA",
+      "God's Menu (ENG ver.)",
+    ],
   },
   {
-    slug: "circus",
+    slug: "5-star-special",
     title: "★★★★★ (5-Star) Special Edition",
     type: "Album",
     date: "2023-10-13",
     trackCount: 16,
     titleTrack: "Lalalala",
-    note: "Edisi khusus dengan tambahan track baru bertema sirkus.",
+    note: "Edisi khusus dengan tambahan track baru bertema sirkus dan perayaan.",
   },
   {
     slug: "ate",
     title: "ATE",
-    type: "Album",
+    type: "EP",
     date: "2024-07-19",
     trackCount: 10,
     titleTrack: "Chk Chk Boom",
-    note: "Album studio ketiga dengan nada yang lebih eksperimental dan playful.",
+    note: "EP kesembilan dengan nada eksperimental dan playful, salah satu title track tersukses grup.",
+    tracklist: ["Chk Chk Boom", "JJAM", "Glow", "Leave", "I Like It", "Twilight", "Burn It", "MUSE", "360", "The View"],
+  },
+  {
+    slug: "hop",
+    title: "合 (HOP)",
+    type: "Mixtape",
+    date: "2024-12-13",
+    trackCount: 12,
+    titleTrack: "Walkin On Water",
+    note: "Mixtape pertama grup bertema SKZhop Hiptape, menampilkan lagu solo tiap member dan kolaborasi dengan Tablo.",
+    tracklist: [
+      "Walkin On Water",
+      "Bounce Back",
+      "U (feat. Tablo)",
+      "Walkin On Water (HIP ver.)",
+      "Railway (Bang Chan)",
+      "Youth (Lee Know)",
+      "Unfair (Felix)",
+      "HALLUCINATION (I.N)",
+      "Hold My Hand (Han)",
+      "As We Are (Seungmin)",
+      "HERO (Changbin)",
+      "SUPER (Hyunjin)",
+    ],
+  },
+  {
+    slug: "karma",
+    title: "KARMA",
+    type: "Album",
+    date: "2025-08-22",
+    trackCount: 11,
+    titleTrack: "CEREMONY",
+    note: "Album studio keempat bertema kompetisi olahraga futuristik tahun 2081. Jadi album terlaris grup dan memenangkan Album of the Year di MAMA 2025.",
+    tracklist: ["BLEEP", "CEREMONY", "CREED", "MESS", "In My Head", "Half Time", "Phoenix", "Ghost", "0801", "CEREMONY (Festival ver.)", "CEREMONY (English ver.)"],
   },
   {
     slug: "do-it",
     title: "DO IT",
-    type: "EP",
-    date: "2025-03-21",
-    trackCount: 8,
-    titleTrack: "CEREMONY",
-    note: "Comeback dengan tema kembali ke semangat awal dan filosofi 'lakukan saja'.",
+    type: "Mixtape",
+    date: "2025-11-21",
+    trackCount: 5,
+    titleTrack: "Do It",
+    note: "Mixtape kedua dalam seri SKZ It Tape dengan dual lead single 'Do It' dan 'DIVINE'. Debut di puncak Billboard 200.",
+    tracklist: ["Do It", "DIVINE", "Holiday", "Photobook", "Do It (Festival Version)"],
+  },
+  {
+    slug: "endless-sun",
+    title: "Endless Sun",
+    type: "Single",
+    date: "2026-03-13",
+    trackCount: 1,
+    titleTrack: "Endless Sun",
+    note: "Digital single kolaborasi dengan brand sunscreen Bioré UV untuk kampanye global 'Sunlight Is Your Spotlight'.",
+    tracklist: ["Endless Sun"],
+  },
+  {
+    slug: "stay-star-light",
+    title: "별, 빛 (STAY)",
+    type: "Single",
+    date: "2026-03-25",
+    trackCount: 1,
+    titleTrack: "별, 빛 (STAY)",
+    note: "Single persembahan untuk fandom STAY, dirilis bertepatan dengan momen penting perjalanan grup.",
+    tracklist: ["별, 빛 (STAY)"],
+  },
+  {
+    slug: "back-to-life",
+    title: "back to life",
+    type: "Single",
+    date: "2026-06-11",
+    trackCount: 1,
+    titleTrack: "back to life",
+    note: "Single solo Han dalam proyek SKZ-PLAYER, memadukan rock alternatif dengan riff gitar psikedelik.",
+    tracklist: ["back to life"],
+  },
+  {
+    slug: "run-it",
+    title: "RUN IT",
+    type: "Single",
+    date: "2026-06-24",
+    trackCount: 1,
+    titleTrack: "RUN IT",
+    note: "Pre-release single dari EP 'THIS & THAT' yang dijadwalkan 7 Agustus 2026. Anthem pop hip-hop alternatif dengan brass dan drum marching.",
+    tracklist: ["RUN IT"],
   },
 ];
+
+export function getRelease(slug: string) {
+  return releases.find((r) => r.slug === slug);
+}
