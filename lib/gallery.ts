@@ -21,6 +21,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "bangchan",
     caption: "Bang Chan — photocard candid",
     era: "5-Star",
+    photo: "/images/gallery/bc.jpg",
   },
   {
     id: "lee-know-1",
@@ -34,6 +35,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "lee-know",
     caption: "Lee Know — photocard candid",
     era: "DO IT",
+    photo: "/images/gallery/lk.jpg",
   },
   {
     id: "changbin-1",
@@ -47,6 +49,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "changbin",
     caption: "Changbin — photocard candid",
     era: "5-Star",
+    photo: "/images/gallery/cb.jpg",
   },
   {
     id: "hyunjin-1",
@@ -60,6 +63,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "hyunjin",
     caption: "Hyunjin — photocard candid",
     era: "DO IT",
+    photo: "/images/gallery/hj.jpg",
   },
   {
     id: "han-1",
@@ -73,6 +77,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "han",
     caption: "Han — photocard candid",
     era: "5-Star",
+    photo: "/images/gallery/han.jpg",
   },
   {
     id: "felix-1",
@@ -86,6 +91,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "felix",
     caption: "Felix — photocard candid",
     era: "DO IT",
+    photo: "/images/gallery/felix.jpg",
   },
   {
     id: "seungmin-1",
@@ -99,6 +105,7 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "seungmin",
     caption: "Seungmin — photocard candid",
     era: "5-Star",
+    photo: "/images/gallery/sm.jpg",
   },
   {
     id: "in-1",
@@ -112,5 +119,6 @@ export const galleryEntries: GalleryEntry[] = [
     memberSlug: "in",
     caption: "I.N — photocard candid",
     era: "DO IT",
+    photo: "/images/gallery/in.jpg",
   },
 ];
