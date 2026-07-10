@@ -1,33 +1,38 @@
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-ink">
-      <div className="mx-auto max-w-6xl px-5 py-10">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:py-12">
         <div className="perforation mb-8" />
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div>
-            <p className="font-display text-lg text-paper">STAY ARCHIVE</p>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-paperdim">
-              Situs penggemar independen yang dibuat oleh dan untuk STAY.
-              Bukan situs resmi, dan tidak berafiliasi dengan agensi atau
-              label rekaman manapun.
-            </p>
+
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          {/* Brand */}
+          <div className="max-w-md">
+            <p className="font-display text-xl text-paper">STAY ARCHIVE</p>
+
+            <p className="mt-3 text-sm leading-7 text-paperdim">Situs penggemar independen yang dibuat oleh dan untuk STAY. Bukan situs resmi, dan tidak berafiliasi dengan agensi maupun label rekaman mana pun.</p>
           </div>
-          <div className="label-tag flex gap-8 text-paperdim">
+
+          {/* Info */}
+          <div className="grid grid-cols-2 gap-6 text-sm md:flex md:gap-10">
             <div>
-              <p className="text-gold">Arsip sejak</p>
-              <p className="mt-1">2024</p>
+              <p className="label-tag text-gold">Arsip sejak</p>
+
+              <p className="mt-2 text-paper">2024</p>
             </div>
+
             <div>
-              <p className="text-gold">Update terakhir</p>
-              <p className="mt-1">Mingguan</p>
+              <p className="label-tag text-gold">Update terakhir</p>
+
+              <p className="mt-2 text-paper">Mingguan</p>
             </div>
           </div>
         </div>
-        <p className="mt-8 text-xs text-paperdim/70">
-          Semua gambar dan merek dagang adalah milik pemegang hak cipta
-          masing-masing dan digunakan di sini hanya untuk tujuan apresiasi
-          penggemar non-komersial.
-        </p>
+
+        <div className="mt-8 border-t border-line pt-6">
+          <p className="text-xs leading-6 text-paperdim/70">
+            Semua gambar, logo, nama artis, album, dan merek dagang merupakan milik pemegang hak cipta masing-masing. Konten pada situs ini disediakan semata-mata untuk tujuan arsip dan apresiasi penggemar secara non-komersial.
+          </p>
+        </div>
       </div>
     </footer>
   );
