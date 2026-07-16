@@ -18,51 +18,73 @@ export default function SchedulePage() {
   );
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-16">
+    <div className="mx-auto max-w-3xl px-5 py-10 sm:py-16">
       <p className="label-tag text-gold">Linimasa</p>
-      <h1 className="mt-2 font-display text-4xl text-paper sm:text-5xl">
+
+      <h1 className="mt-2 font-display text-3xl text-paper sm:text-4xl lg:text-5xl">
         Schedule
       </h1>
-      <p className="mt-4 text-paperdim">
-        Disusun urut waktu karena memang begitu cara jadwal bekerja —
-        bukan label dekoratif. Detail dapat berubah, selalu cek info resmi
-        agensi untuk konfirmasi akhir.
+
+      <p className="mt-4 max-w-2xl text-sm leading-7 text-paperdim sm:text-base">
+        Disusun berdasarkan urutan waktu karena memang begitu cara jadwal
+        bekerja—bukan sekadar label dekoratif. Detail dapat berubah, jadi tetap
+        cek informasi resmi dari agensi untuk konfirmasi terbaru.
       </p>
 
-      <div className="relative mt-12 border-l border-line pl-8">
+      <div className="relative mt-10 border-l border-line pl-6 sm:mt-12 sm:pl-8">
         {sorted.map((item) => {
           const color = categoryColor[item.category] ?? "#8B1E2F";
+
           return (
-            <div key={item.id} className="relative mb-10 last:mb-0">
+            <article key={item.id} className="relative mb-10 last:mb-0">
+              {/* Timeline Dot */}
               <span
-                className="absolute -left-[34px] top-1 h-3 w-3 rounded-full border-2"
-                style={{ borderColor: color, backgroundColor: "#0B0B0D" }}
+                className="absolute -left-[30px] top-2 h-3 w-3 rounded-full border-2 sm:-left-[35px]"
+                style={{
+                  borderColor: color,
+                  backgroundColor: "#0B0B0D",
+                }}
               />
-              <p className="font-mono text-sm text-gold">
+
+              {/* Date */}
+              <p className="font-mono text-xs text-gold sm:text-sm">
                 {new Date(item.date).toLocaleDateString("id-ID", {
                   weekday: "short",
                   day: "2-digit",
                   month: "long",
                   year: "numeric",
                 })}
-                {item.time ? ` · ${item.time}` : ""}
+                {item.time && ` · ${item.time}`}
               </p>
-              <h2 className="mt-1 font-display text-xl text-paper sm:text-2xl">
+
+              {/* Title */}
+              <h2 className="mt-2 font-display text-xl leading-tight text-paper sm:text-2xl">
                 {item.title}
               </h2>
+
+              {/* Location */}
               {item.location && (
-                <p className="label-tag mt-1 text-paperdim">{item.location}</p>
+                <p className="mt-1 text-sm text-paperdim">
+                  {item.location}
+                </p>
               )}
-              <p className="mt-2 max-w-lg text-sm leading-relaxed text-paperdim">
+
+              {/* Description */}
+              <p className="mt-3 text-sm leading-7 text-paperdim">
                 {item.detail}
               </p>
+
+              {/* Category */}
               <span
-                className="label-tag mt-3 inline-block border px-2 py-1"
-                style={{ borderColor: color, color }}
+                className="mt-4 inline-flex rounded border px-3 py-1 text-xs uppercase tracking-wider"
+                style={{
+                  borderColor: color,
+                  color,
+                }}
               >
                 {item.category}
               </span>
-            </div>
+            </article>
           );
         })}
       </div>
