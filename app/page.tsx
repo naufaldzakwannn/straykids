@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import PhotocardStack from "./components/PhotocardStack";
 import { news } from "@/lib/news";
 import { schedule } from "@/lib/schedule";
+import { releases } from "@/lib/discography";
+
+const latestRelease = [...releases].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
 
 export default function HomePage() {
   const latestNews = news.slice(0, 3);
@@ -42,6 +46,49 @@ export default function HomePage() {
                 Jelajah Gallery
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-surface/30">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2 md:items-center">
+          {/* Cover */}
+          <div className="mx-auto">
+            {latestRelease.cover ? (
+              <Image src={latestRelease.cover} alt={latestRelease.title} width={320} height={320} className="rounded border border-line object-cover" />
+            ) : (
+              <div className="flex aspect-square w-72 items-center justify-center border border-dashed border-line">
+                <span className="font-display text-5xl text-paper/10">{latestRelease.title.slice(0, 2)}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Info */}
+          <div>
+            <p className="label-tag text-gold">Latest Release</p>
+
+            <h2 className="mt-3 font-display text-4xl text-paper">{latestRelease.title}</h2>
+
+            <p className="mt-2 text-paperdim">
+              {latestRelease.type} •{" "}
+              {new Date(latestRelease.date).toLocaleDateString("id-ID", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })}
+            </p>
+
+            <div className="mt-8 border-l-2 border-maroon pl-4">
+              <p className="label-tag text-gold">TITLE TRACK</p>
+
+              <h3 className="mt-2 font-display text-2xl text-paper">{latestRelease.titleTrack}</h3>
+            </div>
+
+            <p className="mt-6 max-w-lg leading-7 text-paperdim">{latestRelease.note}</p>
+
+            <Link href={`/discography/${latestRelease.slug}`} className="mt-8 inline-flex border border-maroon bg-maroon px-6 py-3 label-tag text-paper transition hover:bg-transparent hover:text-maroon">
+              Explore Album →
+            </Link>
           </div>
         </div>
       </section>
