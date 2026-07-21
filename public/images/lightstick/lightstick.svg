@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 420" fill="none">
+
+    <defs>
+
+        <radialGradient id="bulbGradient" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#ffffff"></stop>
+            <stop offset="70%" stop-color="#ececec"></stop>
+            <stop offset="100%" stop-color="#cfcfcf"></stop>
+        </radialGradient>
+
+        <linearGradient id="handleGradient" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#444"></stop>
+            <stop offset="50%" stop-color="#222"></stop>
+            <stop offset="100%" stop-color="#555"></stop>
+        </linearGradient>
+
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="8" result="coloredBlur"></feGaussianBlur>
+            <feMerge>
+                <feMergeNode in="coloredBlur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+
+    </defs>
+
+    <!-- bulb -->
+
+    <circle id="light" cx="100" cy="75" r="58" fill="url(#bulbGradient)" stroke="#d7d7d7" stroke-width="4"></circle>
+
+    <!-- star -->
+
+    <g fill="#b78d32">
+        <polygon points="100,48 105,62 120,62 108,71 113,86 100,77 87,86 92,71 80,62 95,62"></polygon>
+    </g>
+
+    <!-- neck -->
+
+    <rect x="86" y="130" width="28" height="34" rx="10" fill="#2f2f2f"></rect>
+
+    <!-- handle -->
+
+    <rect x="82" y="160" width="36" height="190" rx="18" fill="url(#handleGradient)"></rect>
+
+    <!-- grip -->
+
+    <line x1="88" y1="185" x2="112" y2="185" stroke="#666"></line>
+    <line x1="88" y1="205" x2="112" y2="205" stroke="#666"></line>
+    <line x1="88" y1="225" x2="112" y2="225" stroke="#666"></line>
+    <line x1="88" y1="245" x2="112" y2="245" stroke="#666"></line>
+    <line x1="88" y1="265" x2="112" y2="265" stroke="#666"></line>
+    <line x1="88" y1="285" x2="112" y2="285" stroke="#666"></line>
+    <line x1="88" y1="305" x2="112" y2="305" stroke="#666"></line>
+
+    <!-- button -->
+
+    <circle id="button" cx="100" cy="340" r="7" fill="#666"></circle>
+
+</svg>

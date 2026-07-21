@@ -3,6 +3,7 @@ import { Anton, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Lightstick from "./components/Lightstick";
 
 const display = Anton({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id">
       <body className={`${display.variable} ${body.variable} ${mono.variable} font-body`}>
         <NavBar />
+        <Lightstick />
         <main>{children}</main>
         <Footer />
       </body>
