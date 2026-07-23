@@ -1,27 +1,40 @@
 .wrapper {
   position: fixed;
-
   right: 24px;
-
   bottom: 24px;
-
   z-index: 9999;
 }
 
-.lightstick {
+.button {
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
 
-  transition: 0.3s ease;
+  transition: all 0.35s ease;
 }
 
-.lightstick:hover {
+.button:hover {
   transform: scale(1.05);
+}
+
+.lightstick {
+  display: block;
+  transition: all 0.35s ease;
+}
+
+.on .lightstick {
+  transform: scale(1.08);
 }
 
 @media (max-width: 768px) {
   .wrapper {
     right: 16px;
-
     bottom: 16px;
+  }
+
+  .lightstick {
+    width: 70px;
+    height: auto;
   }
 }
