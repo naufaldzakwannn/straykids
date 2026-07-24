@@ -10,7 +10,6 @@
   border: none;
   padding: 0;
   cursor: pointer;
-
   transition: all 0.35s ease;
 }
 
@@ -20,11 +19,45 @@
 
 .lightstick {
   display: block;
-  transition: all 0.35s ease;
+  transition: all 0.45s ease;
 }
+
+/* ===========================
+   OFF
+=========================== */
+
+.lightstick {
+  filter: brightness(0.95) drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+}
+
+/* ===========================
+   ON
+=========================== */
 
 .on .lightstick {
   transform: scale(1.08);
+
+  filter: brightness(1.18) drop-shadow(0 0 12px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 28px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.35));
+
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* ===========================
+   Pulse
+=========================== */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.08);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
 }
 
 @media (max-width: 768px) {
