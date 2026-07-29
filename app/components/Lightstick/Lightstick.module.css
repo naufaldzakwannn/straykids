@@ -105,3 +105,108 @@
     height: auto;
   }
 }
+/* ===========================
+   MODE BADGE
+=========================== */
+
+.badge {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  bottom: -28px;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: #111;
+
+  color: white;
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  white-space: nowrap;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===========================
+   WHITE
+=========================== */
+
+.white .lightstick {
+  filter: brightness(1.2) drop-shadow(0 0 10px white) drop-shadow(0 0 25px white) drop-shadow(0 0 45px rgba(255, 255, 255, 0.5));
+
+  animation: pulse 2s infinite;
+}
+
+/* ===========================
+   GOLD
+=========================== */
+
+.gold .lightstick {
+  filter: brightness(1.2) drop-shadow(0 0 10px #ffd54a) drop-shadow(0 0 25px #ffd54a) drop-shadow(0 0 45px #ffd54a);
+
+  animation: pulse 2s infinite;
+}
+
+/* ===========================
+   RED
+=========================== */
+
+.red .lightstick {
+  filter: brightness(1.2) drop-shadow(0 0 10px #ff3d3d) drop-shadow(0 0 25px #ff3d3d) drop-shadow(0 0 45px #ff3d3d);
+
+  animation: pulse 2s infinite;
+}
+
+/* ===========================
+   BLUE
+=========================== */
+
+.blue .lightstick {
+  filter: brightness(1.2) drop-shadow(0 0 10px #58a6ff) drop-shadow(0 0 25px #58a6ff) drop-shadow(0 0 45px #58a6ff);
+
+  animation: pulse 2s infinite;
+}
+
+/* ===========================
+   RAINBOW
+=========================== */
+
+.rainbow .lightstick {
+  animation:
+    pulse 2s infinite,
+    rainbowGlow 4s linear infinite;
+}
+
+@keyframes rainbowGlow {
+  0% {
+    filter: drop-shadow(0 0 18px red);
+  }
+
+  20% {
+    filter: drop-shadow(0 0 18px orange);
+  }
+
+  40% {
+    filter: drop-shadow(0 0 18px yellow);
+  }
+
+  60% {
+    filter: drop-shadow(0 0 18px lime);
+  }
+
+  80% {
+    filter: drop-shadow(0 0 18px cyan);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 18px violet);
+  }
+}
