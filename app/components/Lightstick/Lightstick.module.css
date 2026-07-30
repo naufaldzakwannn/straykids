@@ -135,78 +135,14 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* ===========================
-   WHITE
-=========================== */
-
-.white .lightstick {
-  filter: brightness(1.2) drop-shadow(0 0 10px white) drop-shadow(0 0 25px white) drop-shadow(0 0 45px rgba(255, 255, 255, 0.5));
-
-  animation: pulse 2s infinite;
+.button svg {
+  transition: 0.35s;
 }
 
-/* ===========================
-   GOLD
-=========================== */
-
-.gold .lightstick {
-  filter: brightness(1.2) drop-shadow(0 0 10px #ffd54a) drop-shadow(0 0 25px #ffd54a) drop-shadow(0 0 45px #ffd54a);
-
-  animation: pulse 2s infinite;
+.button:hover svg {
+  transform: scale(1.05);
 }
 
-/* ===========================
-   RED
-=========================== */
-
-.red .lightstick {
-  filter: brightness(1.2) drop-shadow(0 0 10px #ff3d3d) drop-shadow(0 0 25px #ff3d3d) drop-shadow(0 0 45px #ff3d3d);
-
-  animation: pulse 2s infinite;
-}
-
-/* ===========================
-   BLUE
-=========================== */
-
-.blue .lightstick {
-  filter: brightness(1.2) drop-shadow(0 0 10px #58a6ff) drop-shadow(0 0 25px #58a6ff) drop-shadow(0 0 45px #58a6ff);
-
-  animation: pulse 2s infinite;
-}
-
-/* ===========================
-   RAINBOW
-=========================== */
-
-.rainbow .lightstick {
-  animation:
-    pulse 2s infinite,
-    rainbowGlow 4s linear infinite;
-}
-
-@keyframes rainbowGlow {
-  0% {
-    filter: drop-shadow(0 0 18px red);
-  }
-
-  20% {
-    filter: drop-shadow(0 0 18px orange);
-  }
-
-  40% {
-    filter: drop-shadow(0 0 18px yellow);
-  }
-
-  60% {
-    filter: drop-shadow(0 0 18px lime);
-  }
-
-  80% {
-    filter: drop-shadow(0 0 18px cyan);
-  }
-
-  100% {
-    filter: drop-shadow(0 0 18px violet);
-  }
+.button:active svg {
+  transform: scale(0.96);
 }

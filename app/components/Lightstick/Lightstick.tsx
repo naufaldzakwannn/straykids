@@ -1,5 +1,6 @@
 "use client";
 
+import LightstickSVG from "./LightstickSVG";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import styles from "./Lightstick.module.css";
@@ -39,10 +40,19 @@ export default function Lightstick() {
     }
   }, [mode]);
 
+  const glowColor = {
+    off: "transparent",
+    white: "#ffffff",
+    gold: "#FFD54A",
+    red: "#ff4d4d",
+    blue: "#4EA8FF",
+    rainbow: "#ff00ff",
+  }[mode];
+
   return (
     <div className={styles.wrapper}>
       <button onClick={nextMode} className={`${styles.button} ${modeClass}`} aria-label="Lightstick">
-        <Image src="/images/lightstick/lightstick.svg" alt="Lightstick" width={90} height={180} priority className={styles.lightstick} />
+        <LightstickSVG color={glowColor} />
 
         <span className={styles.badge}>{mode.toUpperCase()}</span>
       </button>
