@@ -13,9 +13,9 @@ export default function Lightstick() {
   const [mode, setMode] = useState<LightMode>("off");
 
   function nextMode() {
-    const current = modes.indexOf(mode);
-    const next = (current + 1) % modes.length;
-    setMode(modes[next]);
+    const index = modes.indexOf(mode);
+
+    setMode(modes[(index + 1) % modes.length]);
   }
 
   const modeClass = useMemo(() => {
@@ -40,19 +40,24 @@ export default function Lightstick() {
     }
   }, [mode]);
 
-  const glowColor = {
-    off: "transparent",
+  const colorMap = {
+    off: "#ffffff",
+
     white: "#ffffff",
+
     gold: "#FFD54A",
+
     red: "#ff4d4d",
-    blue: "#4EA8FF",
+
+    blue: "#5DAEFF",
+
     rainbow: "#ff00ff",
-  }[mode];
+  };
 
   return (
     <div className={styles.wrapper}>
       <button onClick={nextMode} className={`${styles.button} ${modeClass}`} aria-label="Lightstick">
-        <LightstickSVG color={glowColor} />
+        <LightstickSVG width={120} color={colorMap[mode]} glow={mode !== "off"} />
 
         <span className={styles.badge}>{mode.toUpperCase()}</span>
       </button>
