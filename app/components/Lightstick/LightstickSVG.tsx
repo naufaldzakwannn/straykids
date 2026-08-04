@@ -3,6 +3,7 @@ import Handle from "./parts/Handle";
 import Ring from "./parts/Ring";
 import Button from "./parts/Button";
 import Glow from "./parts/Glow";
+import styles from "./Lightstick.module.css";
 
 type Props = {
   color: string;
@@ -12,7 +13,7 @@ type Props = {
 
 export default function LightstickSVG({ color, glow = false, width = 180 }: Props) {
   return (
-    <svg width={width} viewBox="0 0 260 540" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <svg className={styles.svg} width={width} viewBox="0 0 260 540" xmlns="http://www.w3.org/2000/svg" fill="none">
       <defs>
         {/* =====================
             GLASS
