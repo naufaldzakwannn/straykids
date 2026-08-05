@@ -1,4 +1,9 @@
-export default function Ring() {
+type Props = {
+  color: string;
+  active: boolean;
+};
+
+export default function Ring({ color, active }: Props) {
   return (
     <g>
       {/* =====================================
@@ -7,7 +12,18 @@ export default function Ring() {
 
       <ellipse cx="130" cy="205" rx="34" ry="9" fill="url(#metalGradient)" />
 
-      <rect x="96" y="205" width="68" height="18" rx="4" fill="url(#metalGradient)" />
+      <rect
+        x="96"
+        y="205"
+        width="68"
+        height="18"
+        rx="4"
+        fill={active ? color : "url(#metalGradient)"}
+        opacity={active ? 0.28 : 1}
+        style={{
+          transition: "all .45s ease",
+        }}
+      />
 
       <ellipse cx="130" cy="223" rx="34" ry="9" fill="#8f8f8f" />
 

@@ -26,15 +26,34 @@ export default function Bulb({ color, active }: Props) {
           LED RING
       ====================================== */}
 
-      <circle cx="130" cy="120" r="53" fill="none" stroke={active ? color : "#d5d5d5"} strokeWidth="8" filter={active ? "url(#glow)" : undefined} />
+      <circle
+        cx="130"
+        cy="120"
+        r="53"
+        fill="none"
+        stroke={active ? color : "#d8d8d8"}
+        strokeWidth="8"
+        style={{
+          transition: "all .45s ease",
+        }}
+      />
 
-      {active && <circle cx="130" cy="120" r="53" fill="none" stroke={color} strokeWidth="14" opacity=".25" filter="url(#glow)" />}
+      {active && <circle cx="130" cy="120" r="60" fill="none" stroke={color} strokeWidth="18" opacity=".18" filter="url(#glow)" />}
 
       {/* =====================================
           INNER CORE
       ====================================== */}
 
-      <circle cx="130" cy="120" r="34" fill={active ? color : "#f4f4f4"} opacity={active ? 0.18 : 1} />
+      <circle
+        cx="130"
+        cy="120"
+        r="34"
+        fill={active ? color : "#f4f4f4"}
+        opacity={active ? 0.2 : 1}
+        style={{
+          transition: "all .45s ease",
+        }}
+      />
 
       {/* =====================================
           CENTER EMBLEM
