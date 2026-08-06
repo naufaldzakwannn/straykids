@@ -8,17 +8,21 @@ export default function Glow({ color, active }: Props) {
 
   return (
     <g opacity=".95">
-      {/* Glow Besar */}
+      {/* Outer Glow */}
 
-      <circle cx="130" cy="120" r="105" fill={color} opacity=".18" filter="url(#glow)" />
+      <circle cx="130" cy="120" r="110" fill={color} opacity=".08" filter="url(#glow)" />
 
-      {/* Glow Sedang */}
+      {/* Mid Glow */}
 
-      <circle cx="130" cy="120" r="82" fill={color} opacity=".28" filter="url(#glow)" />
+      <circle cx="130" cy="120" r="90" fill={color} opacity=".16" filter="url(#glow)" />
 
-      {/* Glow Kecil */}
+      {/* Inner Glow */}
 
-      <circle cx="130" cy="120" r="60" fill={color} opacity=".42" filter="url(#glow)" />
+      <circle cx="130" cy="120" r="70" fill={color} opacity=".25" filter="url(#glow)" />
+
+      {/* Core Glow */}
+
+      <circle cx="130" cy="120" r="52" fill={color} opacity=".45" filter="url(#glow)" />
     </g>
   );
 }

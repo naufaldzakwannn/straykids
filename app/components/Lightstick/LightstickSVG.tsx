@@ -13,7 +13,16 @@ type Props = {
 
 export default function LightstickSVG({ color, glow = false, width = 180 }: Props) {
   return (
-    <svg className={styles.svg} width={width} viewBox="0 0 260 540" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <svg
+      className={styles.svg}
+      width={width}
+      viewBox="0 0 260 540"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      style={{
+        transition: "all .45s ease",
+      }}
+    >
       <defs>
         {/* =====================
             GLASS
@@ -84,23 +93,13 @@ export default function LightstickSVG({ color, glow = false, width = 180 }: Prop
         </filter>
       </defs>
 
-      {/* Glow Layer */}
-
       <Glow color={color} active={glow} />
-
-      {/* Glass Bulb */}
 
       <Bulb color={color} active={glow} />
 
-      {/* Metal Ring */}
-
-      <Ring />
-
-      {/* Handle */}
+      <Ring color={color} active={glow} />
 
       <Handle />
-
-      {/* Button */}
 
       <Button />
     </svg>
