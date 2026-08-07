@@ -14,13 +14,12 @@ type Props = {
 export default function LightstickSVG({ color, glow = false, width = 180 }: Props) {
   return (
     <svg
-      className={styles.svg}
+      className={`${styles.svg} ${glow ? styles.pulse : ""}`}
       width={width}
       viewBox="0 0 260 540"
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
       style={{
-        transition: "all .45s ease",
+        transition: "filter .45s ease, transform .45s ease",
       }}
     >
       <defs>
