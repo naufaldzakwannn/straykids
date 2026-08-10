@@ -9,9 +9,10 @@ type Props = {
   color: string;
   glow?: boolean;
   width?: number;
+  rainbow: boolean;
 };
 
-export default function LightstickSVG({ color, glow = false, width = 180 }: Props) {
+export default function LightstickSVG({ color, glow = false, width = 180, rainbow }: Props) {
   return (
     <svg
       className={`${styles.svg} ${glow ? styles.pulse : ""}`}
@@ -92,11 +93,11 @@ export default function LightstickSVG({ color, glow = false, width = 180 }: Prop
         </filter>
       </defs>
 
-      <Glow color={color} active={glow} />
+      <Glow color={color} active={glow} rainbow={rainbow} />
 
-      <Bulb color={color} active={glow} />
+      <Bulb color={color} active={glow} rainbow={rainbow} />
 
-      <Ring color={color} active={glow} />
+      <Ring color={color} active={glow} rainbow={rainbow} />
 
       <Handle />
 

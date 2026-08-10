@@ -1,9 +1,10 @@
 type Props = {
   color: string;
   active: boolean;
+  rainbow?: boolean;
 };
 
-export default function Bulb({ color, active }: Props) {
+export default function Bulb({ color, active, rainbow = false }: Props) {
   return (
     <g filter="url(#shadow)">
       {/* =====================================
@@ -26,17 +27,23 @@ export default function Bulb({ color, active }: Props) {
           LED RING
       ====================================== */}
 
-      <circle
-        cx="130"
-        cy="120"
-        r="53"
-        fill="none"
-        stroke={active ? color : "#d8d8d8"}
-        strokeWidth="8"
-        style={{
-          transition: "all .45s ease",
-        }}
-      />
+      <circle cx="130" cy="120" r="53" fill="none" stroke={color} strokeWidth="8" filter={active ? "url(#glow)" : undefined}>
+        {rainbow && (
+          <animate
+            attributeName="stroke"
+            values="
+            #ff3b3b;
+            #ff9800;
+            #ffe600;
+            #4caf50;
+            #2196f3;
+            #9c27b0;
+            #ff3b3b"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        )}
+      </circle>
 
       {active && <circle cx="130" cy="120" r="60" fill="none" stroke={color} strokeWidth="18" opacity=".18" filter="url(#glow)" />}
 
@@ -53,7 +60,23 @@ export default function Bulb({ color, active }: Props) {
         style={{
           transition: "all .45s ease",
         }}
-      />
+      >
+        {rainbow && (
+          <animate
+            attributeName="fill"
+            values="
+            #ff3b3b;
+            #ff9800;
+            #ffe600;
+            #4caf50;
+            #2196f3;
+            #9c27b0;
+            #ff3b3b"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        )}
+      </circle>
 
       {/* =====================================
           CENTER EMBLEM

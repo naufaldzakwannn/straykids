@@ -1,9 +1,10 @@
 type Props = {
   color: string;
   active: boolean;
+  rainbow?: boolean;
 };
 
-export default function Ring({ color, active }: Props) {
+export default function Ring({ color, active, rainbow = false }: Props) {
   return (
     <g>
       {/* =====================================
@@ -20,7 +21,23 @@ export default function Ring({ color, active }: Props) {
         style={{
           transition: "all .45s ease",
         }}
-      />
+      >
+        {rainbow && (
+          <animate
+            attributeName="fill"
+            values="
+        #ff3b3b;
+        #ff9800;
+        #ffe600;
+        #4caf50;
+        #2196f3;
+        #9c27b0;
+        #ff3b3b"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        )}
+      </ellipse>
 
       <rect
         x="96"
@@ -33,7 +50,23 @@ export default function Ring({ color, active }: Props) {
         style={{
           transition: "all .45s ease",
         }}
-      />
+      >
+        {rainbow && (
+          <animate
+            attributeName="fill"
+            values="
+        #ff3b3b;
+        #ff9800;
+        #ffe600;
+        #4caf50;
+        #2196f3;
+        #9c27b0;
+        #ff3b3b"
+            dur="6s"
+            repeatCount="indefinite"
+          />
+        )}
+      </rect>
 
       {active && <ellipse cx="130" cy="214" rx="40" ry="12" fill={color} opacity=".18" filter="url(#glow)" />}
 

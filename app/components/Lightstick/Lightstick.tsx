@@ -50,7 +50,7 @@ export default function Lightstick() {
   return (
     <div className={styles.wrapper}>
       <button onClick={nextMode} className={`${styles.button} ${getModeClass(mode)}`} aria-label="Lightstick">
-        <LightstickSVG width={120} color={COLOR_MAP[mode]} glow={mode !== "off"} />
+        <LightstickSVG width={120} color={COLOR_MAP[mode]} glow={mode !== "off"} rainbow={mode === "rainbow"} />
 
         <span className={styles.badge}>{mode.toUpperCase()}</span>
       </button>

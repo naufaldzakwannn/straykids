@@ -1,28 +1,25 @@
 type Props = {
   color: string;
   active: boolean;
+  rainbow?: boolean;
 };
 
-export default function Glow({ color, active }: Props) {
+export default function Glow({ color, active, rainbow = false }: Props) {
   if (!active) return null;
 
   return (
     <g opacity=".95">
-      {/* Outer Glow */}
+      {/* Outer */}
+      <circle cx="130" cy="120" r="90" fill={color} opacity=".05" filter="url(#glow)" />
 
-      <circle cx="130" cy="120" r="110" fill={color} opacity=".08" filter="url(#glow)" />
+      {/* Mid */}
+      <circle cx="130" cy="120" r="75" fill={color} opacity=".12" filter="url(#glow)" />
 
-      {/* Mid Glow */}
+      {/* Inner */}
+      <circle cx="130" cy="120" r="62" fill={color} opacity=".22" filter="url(#glow)" />
 
-      <circle cx="130" cy="120" r="90" fill={color} opacity=".16" filter="url(#glow)" />
-
-      {/* Inner Glow */}
-
-      <circle cx="130" cy="120" r="70" fill={color} opacity=".25" filter="url(#glow)" />
-
-      {/* Core Glow */}
-
-      <circle cx="130" cy="120" r="52" fill={color} opacity=".45" filter="url(#glow)" />
+      {/* Core */}
+      <circle cx="130" cy="120" r="50" fill={color} opacity=".35" filter="url(#glow)" />
     </g>
   );
 }
