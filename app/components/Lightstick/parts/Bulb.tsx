@@ -45,7 +45,7 @@ export default function Bulb({ color, active, rainbow = false }: Props) {
         )}
       </circle>
 
-      {active && <circle cx="130" cy="120" r="60" fill="none" stroke={color} strokeWidth="18" opacity=".18" filter="url(#glow)" />}
+      {active && <circle cx="130" cy="120" r="60" fill="none" stroke={color} strokeWidth="18" opacity=".18" />}
 
       {/* =====================================
           INNER CORE

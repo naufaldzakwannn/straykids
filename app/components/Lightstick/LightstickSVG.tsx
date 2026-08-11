@@ -28,11 +28,16 @@ export default function LightstickSVG({ color, glow = false, width = 180, rainbo
             GLASS
         ====================== */}
 
-        <radialGradient id="glassGradient">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity=".98" />
-          <stop offset="45%" stopColor="#efefef" stopOpacity=".92" />
-          <stop offset="80%" stopColor="#d7d7d7" stopOpacity=".82" />
-          <stop offset="100%" stopColor="#bdbdbd" stopOpacity=".75" />
+        <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={color} stopOpacity=".95" />
+
+          <stop offset="25%" stopColor={color} stopOpacity=".55" />
+
+          <stop offset="55%" stopColor={color} stopOpacity=".18" />
+
+          <stop offset="80%" stopColor={color} stopOpacity=".05" />
+
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
         </radialGradient>
 
         {/* =====================
@@ -79,15 +84,12 @@ export default function LightstickSVG({ color, glow = false, width = 180, rainbo
             GLOW
         ====================== */}
 
-        <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-          <feGaussianBlur stdDeviation="10" result="blur" />
-
-          <feFlood floodColor={color} />
-
-          <feComposite operator="in" in2="blur" />
+        <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="22" result="blur" />
 
           <feMerge>
-            <feMergeNode />
+            <feMergeNode in="blur" />
+
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
